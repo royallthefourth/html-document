@@ -31,6 +31,6 @@ final class Document implements RenderInterface
             $output .= $element->render() . "\n";
         }
 
-        return $output;
+        return "<!DOCTYPE html>\n{$output}";
     }
 }

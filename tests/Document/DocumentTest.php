@@ -14,12 +14,12 @@ final class DocumentTest extends \PHPUnit_Framework_TestCase
         $set->add(new Text('test string 1'));
         $set->add(new Text('test string 2'));
 
-        static::assertEquals("test string 1\ntest string 2\n", (new Document($set))->render());
+        static::assertEquals("<!DOCTYPE html>\ntest string 1\ntest string 2\n", (new Document($set))->render());
     }
 
     public function testAdd()
     {
-        static::assertEquals("test string 1\ntest string 2\n",
+        static::assertEquals("<!DOCTYPE html>\ntest string 1\ntest string 2\n",
             (new Document())
                 ->add(new Text('test string 1'))
                 ->add(new Text('test string 2'))
