@@ -11,7 +11,6 @@ final class Document implements RenderInterface
 
     public function __construct(ElementSet $elements = null)
     {
-        $this->elements = $elements;
         $this->elements = $elements ?? new ElementSet();
     }
 
