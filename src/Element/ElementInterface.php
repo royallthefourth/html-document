@@ -6,7 +6,7 @@ use RoyallTheFourth\HtmlDocument\RenderInterface;
 
 interface ElementInterface extends RenderInterface
 {
-    public function addAttribute(string $key, string $value = null): ElementInterface;
+    public function withAttribute(string $key, string $value = null);
 
-    public function addChild(ElementInterface $element): ElementInterface;
+    public function withChild(ElementInterface $element);
 }

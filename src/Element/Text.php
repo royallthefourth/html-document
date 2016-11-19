@@ -19,9 +19,9 @@ final class Text implements ElementInterface
     /**
      * Does nothing.
      * @param ElementInterface $element
-     * @return ElementInterface
+     * @return Text
      */
-    public function addChild(ElementInterface $element): ElementInterface
+    public function withChild(ElementInterface $element): Text
     {
         return $this;
     }
@@ -30,9 +30,9 @@ final class Text implements ElementInterface
      * Does nothing.
      * @param string $key
      * @param string $value
-     * @return ElementInterface
+     * @return Text
      */
-    public function addAttribute(string $key, string $value = null): ElementInterface
+    public function withAttribute(string $key, string $value = null): Text
     {
         return $this;
     }
