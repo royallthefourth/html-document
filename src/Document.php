@@ -12,10 +12,7 @@ final class Document implements RenderInterface
     public function __construct(ElementSet $elements = null)
     {
         $this->elements = $elements;
-        if($elements === null)
-        {
-            $this->elements = new ElementSet();
-        }
+        $this->elements = $elements ?? new ElementSet();
     }
 
     public function add(ElementInterface $element): Document
