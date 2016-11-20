@@ -80,7 +80,7 @@ final class Area extends AbstractElement
         return $this->withAttribute('rel', $rel);
     }
 
-    public function withShare($shape): Area
+    public function withShape($shape): Area
     {
         return $this->withAttribute('shape', $shape);
     }
