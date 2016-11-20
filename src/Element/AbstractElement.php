@@ -1,8 +1,10 @@
 <?php
+
 namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
+use RoyallTheFourth\HtmlDocument\Tag\AbstractTag;
 
 /**
  * Class AbstractElement
@@ -14,27 +16,12 @@ abstract class AbstractElement implements ElementInterface
     protected $attributes;
     /** @var  $children ElementSet */
     protected $children;
+    /** @var  $tag AbstractTag */
+    protected $tag;
 
-    protected function renderAttributes(): string
+    final public function render(): string
     {
-        $out = '';
-
-        foreach ($this->attributes->iterate() as $attribute) {
-            $out .= ' ' . $attribute->render();
-        }
-
-        return $out;
-    }
-
-    protected function renderChildren(): string
-    {
-        $out = '';
-
-        foreach ($this->children->iterate() as $child) {
-            $out .= "\n" . $child->render();
-        }
-
-        return $out;
+        return $this->tag->render();
     }
 
     /**

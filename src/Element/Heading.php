@@ -6,28 +6,21 @@ use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
+use RoyallTheFourth\HtmlDocument\Tag\Dual;
 
 /**
  * Class Heading
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
  */
-final class Heading extends AbstractElement
+final class Heading extends AbstractElement implements ParentElementInterface
 {
     private $level;
 
     public function __construct(int $level, AttributeSet $attributes = null, ElementSet $children = null)
     {
-        $this->level = $level;
         $this->attributes = $attributes ?? new AttributeSet();
         $this->children = $children ?? new ElementSet();
-    }
-
-    public function render(): string
-    {
-        $attributes = $this->renderAttributes();
-        $children = $this->renderChildren();
-
-        return "<h{$this->level}{$attributes}>{$children}\n</h{$this->level}>\n";
+        $this->tag = new Dual("h{$level}", $attributes, $children);
     }
 
     public function withAttribute(string $name, string $value = null): Heading

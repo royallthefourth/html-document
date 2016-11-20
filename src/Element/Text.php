@@ -18,16 +18,6 @@ final class Text implements ElementInterface
 
     /**
      * Does nothing.
-     * @param ElementInterface $element
-     * @throws \ErrorException
-     */
-    public function withChild(ElementInterface $element)
-    {
-        throw new \ErrorException('Element does not allow children.');
-    }
-
-    /**
-     * Does nothing.
      * @param string $key
      * @param string $value
      * @return Text

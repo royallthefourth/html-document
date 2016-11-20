@@ -5,6 +5,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
+use RoyallTheFourth\HtmlDocument\Tag\Single;
 
 /**
  * Class Column
@@ -15,13 +16,7 @@ final class Column extends AbstractElement
     public function __construct(AttributeSet $attributes = null)
     {
         $this->attributes = $attributes ?? new AttributeSet();
-    }
-
-    public function render(): string
-    {
-        $attributes = $this->renderAttributes();
-
-        return "<col{$attributes}>\n";
+        $this->tag = new Single('col', $attributes);
     }
 
     public function withAttribute(string $name, string $value = null): Column
@@ -33,16 +28,6 @@ final class Column extends AbstractElement
         }
 
         return new Column($this->attributes->add($attribute));
-    }
-
-    /**
-     * Does nothing.
-     * @param ElementInterface $element
-     * @throws \ErrorException
-     */
-    public function withChild(ElementInterface $element)
-    {
-        throw new \ErrorException('Element does not allow children.');
     }
 
     public function withSpan(int $span = 1): Column

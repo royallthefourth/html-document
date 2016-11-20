@@ -6,25 +6,19 @@ use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
+use RoyallTheFourth\HtmlDocument\Tag\Dual;
 
 /**
  * Class Html
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
  */
-final class Html extends AbstractElement
+final class Html extends AbstractElement implements ParentElementInterface
 {
     public function __construct(AttributeSet $attributes = null, ElementSet $children = null)
     {
         $this->attributes = $attributes ?? new AttributeSet();
         $this->children = $children ?? new ElementSet();
-    }
-
-    public function render(): string
-    {
-        $attributes = $this->renderAttributes();
-        $children = $this->renderChildren();
-
-        return "<html{$attributes}>{$children}\n</html>\n";
+        $this->tag = new Dual('html', $attributes, $children);
     }
 
     public function withAttribute(string $name, string $value = null): Html

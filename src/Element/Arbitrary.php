@@ -6,6 +6,7 @@ use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
+use RoyallTheFourth\HtmlDocument\Tag\Dual;
 
 /**
  * Class Arbitrary
@@ -17,17 +18,9 @@ final class Arbitrary extends AbstractElement
 
     public function __construct(string $name, AttributeSet $attributes = null, ElementSet $children = null)
     {
-        $this->name = $name;
+        $this->tag = new Dual($name, $attributes, $children);
         $this->attributes = $attributes ?? new AttributeSet();
         $this->children = $children ?? new ElementSet();
-    }
-
-    public function render(): string
-    {
-        $attributes = $this->renderAttributes();
-        $children = $this->renderChildren();
-
-        return "<{$this->name}{$attributes}>{$children}\n</{$this->name}>\n";
     }
 
     public function withAttribute(string $name, string $value = null): Arbitrary

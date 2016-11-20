@@ -6,25 +6,19 @@ use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
+use RoyallTheFourth\HtmlDocument\Tag\Dual;
 
 /**
  * Class DescriptionList
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
  */
-final class DescriptionList extends AbstractElement
+final class DescriptionList extends AbstractElement implements ParentElementInterface
 {
     public function __construct(AttributeSet $attributes = null, ElementSet $children = null)
     {
         $this->attributes = $attributes ?? new AttributeSet();
         $this->children = $children ?? new ElementSet();
-    }
-
-    public function render(): string
-    {
-        $attributes = $this->renderAttributes();
-        $children = $this->renderChildren();
-
-        return "<dl{$attributes}>{$children}\n</dl>\n";
+        $this->tag = new Dual('dl', $attributes, $children);
     }
 
     public function withAttribute(string $name, string $value = null): DescriptionList

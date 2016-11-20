@@ -6,25 +6,19 @@ use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
+use RoyallTheFourth\HtmlDocument\Tag\Dual;
 
 /**
  * Class BiDirectionalOverride
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo
  */
-final class BiDirectionalOverride extends AbstractElement
+final class BiDirectionalOverride extends AbstractElement implements ParentElementInterface
 {
     public function __construct(AttributeSet $attributes = null, ElementSet $children = null)
     {
         $this->attributes = $attributes ?? new AttributeSet();
         $this->children = $children ?? new ElementSet();
-    }
-
-    public function render(): string
-    {
-        $attributes = $this->renderAttributes();
-        $children = $this->renderChildren();
-
-        return "<bdo{$attributes}>{$children}\n</bdo>\n";
+        $this->tag = new Dual('bdo', $attributes, $children);
     }
 
     public function withAttribute(string $name, string $value = null): BiDirectionalOverride
@@ -43,7 +37,7 @@ final class BiDirectionalOverride extends AbstractElement
         return new BiDirectionalOverride($this->attributes, $this->children->add($element));
     }
 
-    public function withDir(string $direction): BiDirectionalOverride
+    public function withDir(string $direction = 'auto'): BiDirectionalOverride
     {
         return $this->withAttribute('dir', $direction);
     }

@@ -7,6 +7,4 @@ use RoyallTheFourth\HtmlDocument\RenderInterface;
 interface ElementInterface extends RenderInterface
 {
     public function withAttribute(string $key, string $value = null);
-
-    public function withChild(ElementInterface $element);
 }

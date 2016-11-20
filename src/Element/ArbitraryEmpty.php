@@ -5,6 +5,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
+use RoyallTheFourth\HtmlDocument\Tag\Single;
 
 /**
  * Class Arbitrary
@@ -18,13 +19,7 @@ final class ArbitrarySingle extends AbstractElement
     {
         $this->name = $name;
         $this->attributes = $attributes ?? new AttributeSet();
-    }
-
-    public function render(): string
-    {
-        $attributes = $this->renderAttributes();
-
-        return "<{$this->name}{$attributes}>\n";
+        $this->tag = new Single($name, $attributes);
     }
 
     public function withAttribute(string $name, string $value = null): ArbitrarySingle
@@ -36,15 +31,5 @@ final class ArbitrarySingle extends AbstractElement
         }
 
         return new ArbitrarySingle($this->name, $this->attributes->add($attribute));
-    }
-
-    /**
-     * Does nothing.
-     * @param ElementInterface $element
-     * @throws \ErrorException
-     */
-    public function withChild(ElementInterface $element)
-    {
-        throw new \ErrorException('Element does not allow children.');
     }
 }

@@ -6,25 +6,19 @@ use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
+use RoyallTheFourth\HtmlDocument\Tag\Dual;
 
 /**
  * Class DataList
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
  */
-final class DataList extends AbstractElement
+final class DataList extends AbstractElement implements ParentElementInterface
 {
     public function __construct(AttributeSet $attributes = null, ElementSet $children = null)
     {
         $this->attributes = $attributes ?? new AttributeSet();
         $this->children = $children ?? new ElementSet();
-    }
-
-    public function render(): string
-    {
-        $attributes = $this->renderAttributes();
-        $children = $this->renderChildren();
-
-        return "<datalist{$attributes}>{$children}\n</datalist>\n";
+        $this->tag = new Dual('datalist', $attributes, $children);
     }
 
     public function withAttribute(string $name, string $value = null): DataList

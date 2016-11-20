@@ -6,25 +6,19 @@ use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
+use RoyallTheFourth\HtmlDocument\Tag\Dual;
 
 /**
  * Class Aside
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside
  */
-final class Aside extends AbstractElement
+final class Aside extends AbstractElement implements ParentElementInterface
 {
     public function __construct(AttributeSet $attributes = null, ElementSet $children = null)
     {
         $this->attributes = $attributes ?? new AttributeSet();
         $this->children = $children ?? new ElementSet();
-    }
-
-    public function render(): string
-    {
-        $attributes = $this->renderAttributes();
-        $children = $this->renderChildren();
-
-        return "<aside{$attributes}>{$children}\n</aside>\n";
+        $this->tag = new Dual('aside', $attributes, $children);
     }
 
     public function withAttribute(string $name, string $value = null): Aside
@@ -42,5 +36,4 @@ final class Aside extends AbstractElement
     {
         return new Aside($this->attributes, $this->children->add($element));
     }
-
 }
