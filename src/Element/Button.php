@@ -37,7 +37,7 @@ final class Button extends AbstractElement implements ParentElementInterface
         return new Button($this->attributes, $this->children->add($element));
     }
 
-    public function withAutofocus($autofocus): Button
+    public function withAutoFocus($autofocus): Button
     {
         return $this->withAttribute('autofocus', $autofocus);
     }
