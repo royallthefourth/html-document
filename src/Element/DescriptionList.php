@@ -8,10 +8,10 @@ use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 
 /**
- * Class Division
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div
+ * Class DescriptionList
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
  */
-final class Division extends AbstractElement
+final class DescriptionList extends AbstractElement
 {
     public function __construct(AttributeSet $attributes = null, ElementSet $children = null)
     {
@@ -24,10 +24,10 @@ final class Division extends AbstractElement
         $attributes = $this->renderAttributes();
         $children = $this->renderChildren();
 
-        return "<div{$attributes}>{$children}\n</div>\n";
+        return "<dl{$attributes}>{$children}\n</dl>\n";
     }
 
-    public function withAttribute(string $name, string $value = null): Division
+    public function withAttribute(string $name, string $value = null): DescriptionList
     {
         if ($value) {
             $attribute = new StandardAttribute($name, $value);
@@ -35,11 +35,11 @@ final class Division extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Division($this->attributes->add($attribute));
+        return new DescriptionList($this->attributes->add($attribute));
     }
 
-    public function withChild(ElementInterface $element): Division
+    public function withChild(ElementInterface $element): DescriptionList
     {
-        return new Division($this->attributes, $this->children->add($element));
+        return new DescriptionList($this->attributes, $this->children->add($element));
     }
 }
