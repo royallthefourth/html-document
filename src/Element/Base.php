@@ -38,11 +38,11 @@ final class Base extends AbstractElement
     /**
      * Does nothing.
      * @param ElementInterface $element
-     * @return Base
+     * @throws \ErrorException
      */
-    public function withChild(ElementInterface $element): Base
+    public function withChild(ElementInterface $element)
     {
-        return $this;
+        throw new \ErrorException('Element does not allow children.');
     }
 
     public function withHref($href): Base

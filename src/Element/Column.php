@@ -38,7 +38,6 @@ final class Column extends AbstractElement
     /**
      * Does nothing.
      * @param ElementInterface $element
-     * @return Column
      * @throws \ErrorException
      */
     public function withChild(ElementInterface $element)

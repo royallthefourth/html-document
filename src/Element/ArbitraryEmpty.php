@@ -39,12 +39,12 @@ final class ArbitrarySingle extends AbstractElement
     }
 
     /**
-     * Does nothing
+     * Does nothing.
      * @param ElementInterface $element
-     * @return ArbitrarySingle
+     * @throws \ErrorException
      */
-    public function withChild(ElementInterface $element): ArbitrarySingle
+    public function withChild(ElementInterface $element)
     {
-        return $this;
+        throw new \ErrorException('Element does not allow children.');
     }
 }

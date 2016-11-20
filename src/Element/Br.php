@@ -38,10 +38,10 @@ final class Br extends AbstractElement
     /**
      * Does nothing.
      * @param ElementInterface $element
-     * @return Br
+     * @throws \ErrorException
      */
-    public function withChild(ElementInterface $element): Br
+    public function withChild(ElementInterface $element)
     {
-        return $this;
+        throw new \ErrorException('Element does not allow children.');
     }
 }
