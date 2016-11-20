@@ -15,8 +15,7 @@ abstract class AbstractElement implements ElementInterface
     {
         $out = '';
 
-        foreach($this->attributes->iterate() as $attribute)
-        {
+        foreach ($this->attributes->iterate() as $attribute) {
             $out .= ' ' . $attribute->render();
         }
 
@@ -27,8 +26,7 @@ abstract class AbstractElement implements ElementInterface
     {
         $out = '';
 
-        foreach($this->children->iterate() as $child)
-        {
+        foreach ($this->children->iterate() as $child) {
             $out .= "\n" . $child->render();
         }
 
