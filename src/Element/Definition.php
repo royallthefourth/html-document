@@ -8,10 +8,10 @@ use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 
 /**
- * Class Details
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
+ * Class Definition
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn
  */
-final class Details extends AbstractElement
+final class Definition extends AbstractElement
 {
     public function __construct(AttributeSet $attributes = null, ElementSet $children = null)
     {
@@ -24,10 +24,10 @@ final class Details extends AbstractElement
         $attributes = $this->renderAttributes();
         $children = $this->renderChildren();
 
-        return "<details{$attributes}>{$children}\n</details>\n";
+        return "<dfn{$attributes}>{$children}\n</dfn>\n";
     }
 
-    public function withAttribute(string $name, string $value = null): Details
+    public function withAttribute(string $name, string $value = null): Definition
     {
         if ($value) {
             $attribute = new StandardAttribute($name, $value);
@@ -35,16 +35,11 @@ final class Details extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Details($this->attributes->add($attribute));
+        return new Definition($this->attributes->add($attribute));
     }
 
-    public function withChild(ElementInterface $element): Details
+    public function withChild(ElementInterface $element): Definition
     {
-        return new Details($this->attributes, $this->children->add($element));
-    }
-
-    public function withOpen(string $open = 'false'): Details
-    {
-        return $this->withAttribute('open', $open);
+        return new Definition($this->attributes, $this->children->add($element));
     }
 }
