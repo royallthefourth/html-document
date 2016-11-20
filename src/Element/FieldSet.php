@@ -35,7 +35,7 @@ final class FieldSet extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new FieldSet($this->attributes->add($attribute));
+        return new FieldSet($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): FieldSet

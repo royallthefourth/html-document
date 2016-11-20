@@ -20,10 +20,11 @@ final class Text implements ElementInterface
      * Does nothing.
      * @param ElementInterface $element
      * @return Text
+     * @throws \ErrorException
      */
     public function withChild(ElementInterface $element): Text
     {
-        return $this;
+        throw new \ErrorException('Element cannot have children.');
     }
 
     /**
@@ -31,9 +32,10 @@ final class Text implements ElementInterface
      * @param string $key
      * @param string $value
      * @return Text
+     * @throws \ErrorException
      */
     public function withAttribute(string $key, string $value = null): Text
     {
-        return $this;
+        throw new \ErrorException('Element cannot have attributes.');
     }
 }

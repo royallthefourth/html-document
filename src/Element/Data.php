@@ -35,7 +35,7 @@ final class Data extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Data($this->attributes->add($attribute));
+        return new Data($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): Data

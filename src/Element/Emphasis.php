@@ -35,7 +35,7 @@ final class Emphasis extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Emphasis($this->attributes->add($attribute));
+        return new Emphasis($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): Emphasis

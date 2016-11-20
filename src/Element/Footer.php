@@ -8,10 +8,10 @@ use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 
 /**
- * Class DescriptionList
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
+ * Class Footer
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer
  */
-final class DescriptionList extends AbstractElement
+final class Footer extends AbstractElement
 {
     public function __construct(AttributeSet $attributes = null, ElementSet $children = null)
     {
@@ -24,10 +24,10 @@ final class DescriptionList extends AbstractElement
         $attributes = $this->renderAttributes();
         $children = $this->renderChildren();
 
-        return "<dl{$attributes}>{$children}\n</dl>\n";
+        return "<footer{$attributes}>{$children}\n</footer>\n";
     }
 
-    public function withAttribute(string $name, string $value = null): DescriptionList
+    public function withAttribute(string $name, string $value = null): Footer
     {
         if ($value) {
             $attribute = new StandardAttribute($name, $value);
@@ -35,11 +35,11 @@ final class DescriptionList extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new DescriptionList($this->attributes->add($attribute), $this->children);
+        return new Footer($this->attributes->add($attribute), $this->children);
     }
 
-    public function withChild(ElementInterface $element): DescriptionList
+    public function withChild(ElementInterface $element): Footer
     {
-        return new DescriptionList($this->attributes, $this->children->add($element));
+        return new Footer($this->attributes, $this->children->add($element));
     }
 }

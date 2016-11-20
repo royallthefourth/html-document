@@ -29,13 +29,13 @@ final class Aside extends AbstractElement
 
     public function withAttribute(string $name, string $value = null): Aside
     {
-        if($value) {
+        if ($value) {
             $attribute = new StandardAttribute($name, $value);
-        }else{
+        } else {
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Aside($this->attributes->add($attribute));
+        return new Aside($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): Aside

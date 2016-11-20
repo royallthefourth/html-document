@@ -35,7 +35,7 @@ final class Definition extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Definition($this->attributes->add($attribute));
+        return new Definition($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): Definition

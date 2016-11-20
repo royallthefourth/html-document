@@ -26,9 +26,9 @@ final class Base extends AbstractElement
 
     public function withAttribute(string $name, string $value = null): Base
     {
-        if($value) {
+        if ($value) {
             $attribute = new StandardAttribute($name, $value);
-        }else{
+        } else {
             $attribute = new BooleanAttribute($name);
         }
 

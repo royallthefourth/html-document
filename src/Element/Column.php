@@ -39,10 +39,11 @@ final class Column extends AbstractElement
      * Does nothing.
      * @param ElementInterface $element
      * @return Column
+     * @throws \ErrorException
      */
-    public function withChild(ElementInterface $element): Column
+    public function withChild(ElementInterface $element)
     {
-        return $this;
+        throw new \ErrorException('Element does not allow children.');
     }
 
     public function withSpan(int $span = 1): Column

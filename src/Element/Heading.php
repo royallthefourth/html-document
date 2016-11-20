@@ -8,13 +8,16 @@ use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 
 /**
- * Class DescriptionList
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
+ * Class Heading
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
  */
-final class DescriptionList extends AbstractElement
+final class Heading extends AbstractElement
 {
-    public function __construct(AttributeSet $attributes = null, ElementSet $children = null)
+    private $level;
+
+    public function __construct(int $level, AttributeSet $attributes = null, ElementSet $children = null)
     {
+        $this->level = $level;
         $this->attributes = $attributes ?? new AttributeSet();
         $this->children = $children ?? new ElementSet();
     }
@@ -24,10 +27,10 @@ final class DescriptionList extends AbstractElement
         $attributes = $this->renderAttributes();
         $children = $this->renderChildren();
 
-        return "<dl{$attributes}>{$children}\n</dl>\n";
+        return "<h{$this->level}{$attributes}>{$children}\n</h{$this->level}>\n";
     }
 
-    public function withAttribute(string $name, string $value = null): DescriptionList
+    public function withAttribute(string $name, string $value = null): Heading
     {
         if ($value) {
             $attribute = new StandardAttribute($name, $value);
@@ -35,11 +38,11 @@ final class DescriptionList extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new DescriptionList($this->attributes->add($attribute), $this->children);
+        return new Heading($this->level, $this->attributes->add($attribute), $this->children);
     }
 
-    public function withChild(ElementInterface $element): DescriptionList
+    public function withChild(ElementInterface $element): Heading
     {
-        return new DescriptionList($this->attributes, $this->children->add($element));
+        return new Heading($this->level, $this->attributes, $this->children->add($element));
     }
 }

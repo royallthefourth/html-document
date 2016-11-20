@@ -35,7 +35,7 @@ final class Division extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Division($this->attributes->add($attribute));
+        return new Division($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): Division

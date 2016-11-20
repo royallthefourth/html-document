@@ -35,7 +35,7 @@ final class Details extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Details($this->attributes->add($attribute));
+        return new Details($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): Details

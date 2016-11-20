@@ -29,13 +29,13 @@ final class Canvas extends AbstractElement
 
     public function withAttribute(string $name, string $value = null): Canvas
     {
-        if($value) {
+        if ($value) {
             $attribute = new StandardAttribute($name, $value);
-        }else{
+        } else {
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Canvas($this->attributes->add($attribute));
+        return new Canvas($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): Canvas

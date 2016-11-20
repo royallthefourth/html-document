@@ -39,10 +39,11 @@ final class Embed extends AbstractElement
      * Does nothing.
      * @param ElementInterface $element
      * @return Embed
+     * @throws \ErrorException
      */
     public function withChild(ElementInterface $element): Embed
     {
-        return $this;
+        throw new \ErrorException('Element cannot have children');
     }
 
     public function withHeight(int $pixels): Embed

@@ -26,9 +26,9 @@ final class Br extends AbstractElement
 
     public function withAttribute(string $name, string $value = null): Br
     {
-        if($value) {
+        if ($value) {
             $attribute = new StandardAttribute($name, $value);
-        }else{
+        } else {
             $attribute = new BooleanAttribute($name);
         }
 

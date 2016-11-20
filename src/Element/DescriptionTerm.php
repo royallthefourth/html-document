@@ -35,7 +35,7 @@ final class DescriptionTerm extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new DescriptionTerm($this->attributes->add($attribute));
+        return new DescriptionTerm($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): DescriptionTerm

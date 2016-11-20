@@ -29,13 +29,13 @@ final class Code extends AbstractElement
 
     public function withAttribute(string $name, string $value = null): Code
     {
-        if($value) {
+        if ($value) {
             $attribute = new StandardAttribute($name, $value);
-        }else{
+        } else {
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Code($this->attributes->add($attribute));
+        return new Code($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): Code

@@ -29,13 +29,13 @@ final class Audio extends AbstractElement
 
     public function withAttribute(string $name, string $value = null): Audio
     {
-        if($value) {
+        if ($value) {
             $attribute = new StandardAttribute($name, $value);
-        }else{
+        } else {
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Audio($this->attributes->add($attribute));
+        return new Audio($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): Audio

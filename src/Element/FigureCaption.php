@@ -8,10 +8,10 @@ use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 
 /**
- * Class DescriptionList
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
+ * Class FigureCaption
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption
  */
-final class DescriptionList extends AbstractElement
+final class FigureCaption extends AbstractElement
 {
     public function __construct(AttributeSet $attributes = null, ElementSet $children = null)
     {
@@ -24,10 +24,10 @@ final class DescriptionList extends AbstractElement
         $attributes = $this->renderAttributes();
         $children = $this->renderChildren();
 
-        return "<dl{$attributes}>{$children}\n</dl>\n";
+        return "<figcaption{$attributes}>{$children}\n</figcaption>\n";
     }
 
-    public function withAttribute(string $name, string $value = null): DescriptionList
+    public function withAttribute(string $name, string $value = null): FigureCaption
     {
         if ($value) {
             $attribute = new StandardAttribute($name, $value);
@@ -35,11 +35,11 @@ final class DescriptionList extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new DescriptionList($this->attributes->add($attribute), $this->children);
+        return new FigureCaption($this->attributes->add($attribute), $this->children);
     }
 
-    public function withChild(ElementInterface $element): DescriptionList
+    public function withChild(ElementInterface $element): FigureCaption
     {
-        return new DescriptionList($this->attributes, $this->children->add($element));
+        return new FigureCaption($this->attributes, $this->children->add($element));
     }
 }

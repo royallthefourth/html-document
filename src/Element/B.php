@@ -29,13 +29,13 @@ final class B extends AbstractElement
 
     public function withAttribute(string $name, string $value = null): B
     {
-        if($value) {
+        if ($value) {
             $attribute = new StandardAttribute($name, $value);
-        }else{
+        } else {
             $attribute = new BooleanAttribute($name);
         }
 
-        return new B($this->attributes->add($attribute));
+        return new B($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): B

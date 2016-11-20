@@ -29,13 +29,13 @@ final class Button extends AbstractElement
 
     public function withAttribute(string $name, string $value = null): Button
     {
-        if($value) {
+        if ($value) {
             $attribute = new StandardAttribute($name, $value);
-        }else{
+        } else {
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Button($this->attributes->add($attribute));
+        return new Button($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): Button

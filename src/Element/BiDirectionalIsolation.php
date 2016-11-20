@@ -29,13 +29,13 @@ final class BiDirectionalIsolation extends AbstractElement
 
     public function withAttribute(string $name, string $value = null): BiDirectionalIsolation
     {
-        if($value) {
+        if ($value) {
             $attribute = new StandardAttribute($name, $value);
-        }else{
+        } else {
             $attribute = new BooleanAttribute($name);
         }
 
-        return new BiDirectionalIsolation($this->attributes->add($attribute));
+        return new BiDirectionalIsolation($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): BiDirectionalIsolation

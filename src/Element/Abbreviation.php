@@ -29,13 +29,13 @@ final class Abbreviation extends AbstractElement
 
     public function withAttribute(string $name, string $value = null): Abbreviation
     {
-        if($value) {
+        if ($value) {
             $attribute = new StandardAttribute($name, $value);
-        }else{
+        } else {
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Abbreviation($this->attributes->add($attribute));
+        return new Abbreviation($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): Abbreviation

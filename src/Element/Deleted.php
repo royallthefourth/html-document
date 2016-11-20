@@ -35,7 +35,7 @@ final class Deleted extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Deleted($this->attributes->add($attribute));
+        return new Deleted($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): Deleted

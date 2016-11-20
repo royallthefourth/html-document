@@ -35,7 +35,7 @@ final class DataList extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new DataList($this->attributes->add($attribute));
+        return new DataList($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): DataList

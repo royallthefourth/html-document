@@ -35,7 +35,7 @@ final class ColumnGroup extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new ColumnGroup($this->attributes->add($attribute));
+        return new ColumnGroup($this->attributes->add($attribute), $this->children);
     }
 
     public function withChild(ElementInterface $element): ColumnGroup

@@ -29,9 +29,9 @@ final class ArbitrarySingle extends AbstractElement
 
     public function withAttribute(string $name, string $value = null): ArbitrarySingle
     {
-        if($value) {
+        if ($value) {
             $attribute = new StandardAttribute($name, $value);
-        }else{
+        } else {
             $attribute = new BooleanAttribute($name);
         }
 
