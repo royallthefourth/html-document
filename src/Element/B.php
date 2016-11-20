@@ -9,7 +9,7 @@ use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 
 /**
  * Class B
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b
  */
 final class B extends AbstractElement
 {
