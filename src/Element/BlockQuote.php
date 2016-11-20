@@ -24,7 +24,7 @@ final class BlockQuote extends AbstractElement
         $attributes = $this->renderAttributes();
         $children = $this->renderChildren();
 
-        return "<bdo{$attributes}>{$children}\n</bdo>\n";
+        return "<blockquote{$attributes}>{$children}\n</blockquote>\n";
     }
 
     public function withAttribute(string $name, string $value = null): BlockQuote
