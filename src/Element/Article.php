@@ -27,7 +27,7 @@ final class Article extends AbstractElement
         return "<article{$attributes}>{$children}\n</article>\n";
     }
 
-    public function withAttribute(string $name, string $value = null): Anchor
+    public function withAttribute(string $name, string $value = null): Article
     {
         if($value) {
             $attribute = new StandardAttribute($name, $value);
@@ -35,12 +35,12 @@ final class Article extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Anchor($this->attributes->add($attribute));
+        return new Article($this->attributes->add($attribute));
     }
 
-    public function withChild(ElementInterface $element): Anchor
+    public function withChild(ElementInterface $element): Article
     {
-        return new Anchor($this->attributes, $this->children->add($element));
+        return new Article($this->attributes, $this->children->add($element));
     }
 
 }
