@@ -6,7 +6,7 @@ use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
-use RoyallTheFourth\HtmlDocument\Tag\Dual;
+use RoyallTheFourth\HtmlDocument\Tag\Standard;
 
 /**
  * Class FigureCaption
@@ -18,7 +18,7 @@ final class FigureCaption extends AbstractElement implements ParentElementInterf
     {
         $this->attributes = $attributes ?? new AttributeSet();
         $this->children = $children ?? new ElementSet();
-        $this->tag = new Dual('figcaption', $attributes, $children);
+        $this->tag = new Standard('figcaption', $attributes, $children);
     }
 
     public function withAttribute(string $name, string $value = null): FigureCaption

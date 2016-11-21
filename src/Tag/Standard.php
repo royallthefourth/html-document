@@ -5,7 +5,7 @@ namespace RoyallTheFourth\HtmlDocument\Tag;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 
-final class Dual extends AbstractTag
+final class Standard extends AbstractTag
 {
     /** @var  $children ElementSet */
     private $children;
@@ -24,7 +24,6 @@ final class Dual extends AbstractTag
 
         return "<{$this->name}{$attributes}>{$children}\n</{$this->name}>\n";
     }
-
 
     private function renderChildren(): string
     {

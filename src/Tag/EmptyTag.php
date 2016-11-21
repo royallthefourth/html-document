@@ -3,7 +3,7 @@ namespace RoyallTheFourth\HtmlDocument\Tag;
 
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 
-final class Single extends AbstractTag
+final class EmptyTag extends AbstractTag
 {
     public function __construct(string $name, AttributeSet $attributes = null)
     {

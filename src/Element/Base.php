@@ -5,7 +5,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
-use RoyallTheFourth\HtmlDocument\Tag\Single;
+use RoyallTheFourth\HtmlDocument\Tag\EmptyTag;
 
 /**
  * Class Base
@@ -16,7 +16,7 @@ final class Base extends AbstractElement
     public function __construct(AttributeSet $attributes = null)
     {
         $this->attributes = $attributes ?? new AttributeSet();
-        $this->tag = new Single('base', $attributes);
+        $this->tag = new EmptyTag('base', $attributes);
     }
 
     public function withAttribute(string $name, string $value = null): Base

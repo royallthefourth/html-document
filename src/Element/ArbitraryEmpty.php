@@ -5,7 +5,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
-use RoyallTheFourth\HtmlDocument\Tag\Single;
+use RoyallTheFourth\HtmlDocument\Tag\EmptyTag;
 
 /**
  * Class Arbitrary
@@ -19,7 +19,7 @@ final class ArbitrarySingle extends AbstractElement
     {
         $this->name = $name;
         $this->attributes = $attributes ?? new AttributeSet();
-        $this->tag = new Single($name, $attributes);
+        $this->tag = new EmptyTag($name, $attributes);
     }
 
     public function withAttribute(string $name, string $value = null): ArbitrarySingle

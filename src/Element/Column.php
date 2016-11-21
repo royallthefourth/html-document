@@ -5,7 +5,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
-use RoyallTheFourth\HtmlDocument\Tag\Single;
+use RoyallTheFourth\HtmlDocument\Tag\EmptyTag;
 
 /**
  * Class Column
@@ -16,7 +16,7 @@ final class Column extends AbstractElement
     public function __construct(AttributeSet $attributes = null)
     {
         $this->attributes = $attributes ?? new AttributeSet();
-        $this->tag = new Single('col', $attributes);
+        $this->tag = new EmptyTag('col', $attributes);
     }
 
     public function withAttribute(string $name, string $value = null): Column

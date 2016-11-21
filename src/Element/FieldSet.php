@@ -6,7 +6,7 @@ use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
-use RoyallTheFourth\HtmlDocument\Tag\Dual;
+use RoyallTheFourth\HtmlDocument\Tag\Standard;
 
 /**
  * Class FieldSet
@@ -18,7 +18,7 @@ final class FieldSet extends AbstractElement implements ParentElementInterface
     {
         $this->attributes = $attributes ?? new AttributeSet();
         $this->children = $children ?? new ElementSet();
-        $this->tag = new Dual('fieldset', $attributes, $children);
+        $this->tag = new Standard('fieldset', $attributes, $children);
     }
 
     public function withAttribute(string $name, string $value = null): FieldSet
