@@ -36,5 +36,4 @@ final class Article extends AbstractElement implements ParentElementInterface
     {
         return new Article($this->attributes, $this->children->add($element));
     }
-
 }

@@ -1,4 +1,7 @@
 # html-document
+
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/ee8a0fc2-0db8-45b2-86b9-35ff7e165b4c/mini.png)](https://insight.sensiolabs.com/projects/ee8a0fc2-0db8-45b2-86b9-35ff7e165b4c)
+
 `html-document` is an object oriented tool for building HTML documents.
 It's intended to be more practical than the standard DOM implementation.
 Of course, it's not actually a DOM implementation.
@@ -13,8 +16,10 @@ Install with [Composer](https://getcomposer.org/).
 Add the library to your `composer.json`:
 
 ```json
-"require": {
-    "royallthefourth/html-document": "^1.0"
+{
+    "require": {
+        "royallthefourth/html-document": "^1.0"
+    }
 }
 ```
 Then install:

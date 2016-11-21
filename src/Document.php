@@ -23,7 +23,7 @@ final class Document implements RenderInterface
     {
         $output = '';
 
-        foreach($this->elements->iterate() as $element){
+        foreach ($this->elements->iterate() as $element) {
             $output .= $element->render() . "\n";
         }
 
