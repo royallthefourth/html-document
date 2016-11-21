@@ -95,4 +95,4 @@ If something in the library is missing or out of date, I'd love for it to be bro
 If it's a simple bugfix, go ahead and open a pull request.
 Please include a test that exposes the bug along with your bugfix.
 
-For anything more complex, open an issue first so we discuss how to handle it.
+For anything more complex, open an issue first so we can discuss how to handle it.
