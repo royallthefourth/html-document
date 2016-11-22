@@ -83,7 +83,7 @@ The real idea behind this library is to allow objects to represent themselves as
 For example, you might have an object that can take a `Layout` object to provide presentation behavior.
 Injecting a `TableRowLayout` object will provide the behaviors of the layout object without breaking encapsulation.
 Now your object can represent itself as a `<tr>` without the need for a templating engine, public properties, or getter methods.
-With this approach, a thoughtfully composed system of objects *almost* leads directly to a finished HTML document.
+With this approach, a thoughtfully composed system of objects leads directly to a finished HTML document.
 See [my blog](https://royall.us/ditch-the-template-system/) for a more detailed example.
 
 One important difference from the usual conception of HTML documents is that these elements do not have values.
