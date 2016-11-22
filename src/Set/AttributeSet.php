@@ -44,4 +44,15 @@ final class AttributeSet implements SetInterface
 
         return $this;
     }
+
+    public function render(): string
+    {
+        $output = '';
+
+        foreach ($this->iterate() as $attribute) {
+            $output .= ' ' . $attribute->render();
+        }
+
+        return $output;
+    }
 }

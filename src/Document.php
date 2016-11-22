@@ -21,11 +21,7 @@ final class Document implements RenderInterface
 
     public function render(): string
     {
-        $output = '';
-
-        foreach ($this->elements->iterate() as $element) {
-            $output .= $element->render() . "\n";
-        }
+        $output = $this->elements->render();
 
         return "<!DOCTYPE html>\n{$output}";
     }

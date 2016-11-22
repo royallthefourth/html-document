@@ -2,7 +2,9 @@
 
 namespace RoyallTheFourth\HtmlDocument\Set;
 
-interface SetInterface
+use RoyallTheFourth\HtmlDocument\RenderInterface;
+
+interface SetInterface extends RenderInterface
 {
     public function iterate();
     public function add($item);

@@ -44,4 +44,15 @@ final class ElementSet implements SetInterface
 
         return $this;
     }
+
+    public function render(): string
+    {
+        $output = '';
+
+        foreach ($this->iterate() as $element) {
+            $output .= $element->render() . "\n";
+        }
+
+        return $output;
+    }
 }
