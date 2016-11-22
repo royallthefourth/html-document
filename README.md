@@ -80,9 +80,11 @@ Build a whole document at once like this, or piece existing parts together
 
 Of course, you're unlikely to want to build whole documents in place like this.
 The real idea behind this library is to allow objects to represent themselves as elements to put on a page.
-For example, you might have a `TableRowInterface` with a `toTableRow` method.
+For example, you might have an object that can take a `Layout` object to provide presentation behavior.
+Injecting a `TableRowLayout` object will provide the behaviors of the layout object without breaking encapsulation.
 Now your object can represent itself as a `<tr>` without the need for a templating engine, public properties, or getter methods.
-With this appraoch, a thoughtfully composed system of objects *almost* leads directly to a finished HTML document.
+With this approach, a thoughtfully composed system of objects *almost* leads directly to a finished HTML document.
+See [my blog](https://royall.us/ditch-the-template-system/) for a more detailed example.
 
 One important difference from the usual conception of HTML documents is that these elements do not have values.
 Instead, the library provides a special element type called `Text` that can be used to place arbitrary text within any node that has open and close tags.
