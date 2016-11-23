@@ -8,7 +8,7 @@ It's intended to be more practical than the standard DOM implementation, but it'
 
 ## What does it do?
 * Provides all standard HTML5 elements as classes
-* Provides methods the user to compose these classes into a document hierarchy
+* Provides methods to compose these elements into a document hierarchy
 * Renders a hierarchy of elements into a single string for output to the browser
 
 ## What does it not do?
