@@ -4,7 +4,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/royallthefourth/html-document/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/royallthefourth/html-document/?branch=master)
 
 `html-document` is an object oriented tool for building HTML documents.
-It's intended to be more practical than the standard DOM implementation, but it's not exactly a by-the-book a DOM implementation.
+It's intended to be more practical than the standard DOM implementation, but it's not exactly a by-the-book DOM implementation.
 
 ## What does it do?
 * Provides all standard HTML5 elements as classes
