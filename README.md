@@ -32,7 +32,7 @@ Then install:
 composer install --no-dev
 ```
 
-There are no dependencies for this library.
+This library has no dependencies.
 
 ## Example
 Building all or part of an HTML document with this library is easy. Take a look:
