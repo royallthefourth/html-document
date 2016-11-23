@@ -1,6 +1,7 @@
 # html-document
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/ee8a0fc2-0db8-45b2-86b9-35ff7e165b4c/mini.png)](https://insight.sensiolabs.com/projects/ee8a0fc2-0db8-45b2-86b9-35ff7e165b4c)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/royallthefourth/html-document/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/royallthefourth/html-document/?branch=master)
 
 `html-document` is an object oriented tool for building HTML documents.
 It's intended to be more practical than the standard DOM implementation.
