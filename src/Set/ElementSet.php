@@ -4,7 +4,7 @@ namespace RoyallTheFourth\HtmlDocument\Set;
 
 use RoyallTheFourth\HtmlDocument\Element\ElementInterface;
 
-final class ElementSet implements SetInterface
+final class ElementSet implements ElementSetInterface
 {
     private $elements = [];
 
