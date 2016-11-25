@@ -3,8 +3,11 @@ namespace RoyallTheFourth\HtmlDocument\Tag;
 
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 
-final class EmptyTag extends AbstractTag
+final class EmptyTag implements TagInterface
 {
+    private $attributes;
+    private $name;
+
     public function __construct(string $name, AttributeSet $attributes = null)
     {
         $this->attributes = $attributes;
@@ -13,7 +16,7 @@ final class EmptyTag extends AbstractTag
 
     public function render(): string
     {
-        $attributes = $this->renderAttributes();
+        $attributes = $this->attributes->render();
 
         return "<{$this->name}{$attributes}>\n";
     }

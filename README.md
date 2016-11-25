@@ -1,15 +1,20 @@
 # html-document
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/ee8a0fc2-0db8-45b2-86b9-35ff7e165b4c/mini.png)](https://insight.sensiolabs.com/projects/ee8a0fc2-0db8-45b2-86b9-35ff7e165b4c)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/royallthefourth/html-document/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/royallthefourth/html-document/?branch=master)
 
 `html-document` is an object oriented tool for building HTML documents.
-It's intended to be more practical than the standard DOM implementation.
-Of course, it's not actually a DOM implementation.
-This is just an HTML document builder; it is write-only and does nothing to ensure correctness.
-This library provides every HTML element listed in [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/) that is not deprecated or experimental.
-One thing this library does *not* do is provide any safety.
-You could easily use it to create an invalid document or XSS vulnerability.
-Be sure to handle any unsafe values before using them as arguments to this library.
+It's intended to be more practical than the standard DOM implementation, but it's not exactly a by-the-book DOM implementation.
+
+## What does it do?
+* Provides all standard HTML5 elements as classes
+* Provides methods to compose these elements into a document hierarchy
+* Renders a hierarchy of elements into a single string for output to the browser
+
+## What does it not do?
+* Provide any validation for the documents you create (for now)
+* Prevent XSS or other injection-related attacks
+* Read or manipulate already existing documents
 
 ## Installation
 Install with [Composer](https://getcomposer.org/).
@@ -27,7 +32,7 @@ Then install:
 composer install --no-dev
 ```
 
-There are no dependencies for this library.
+This library has no dependencies.
 
 ## Example
 Building all or part of an HTML document with this library is easy. Take a look:
@@ -93,8 +98,15 @@ There are also `Arbitrary` and `ArbitraryEmpty` elements in case you need a nons
 The only difference between these two is that `Arbitrary` has a closing tag while `ArbitraryEmpty` does not.
 For example, `<br>` could be implemented as an `ArbitraryEmpty`.
 
-For more examples, see the tests directory.
+For more examples, see the `tests` directory.
 My intention is for this library to be very straightforward and self-documenting.
+
+## Safety
+This library **does not** sanitize its inputs at all.
+Treat everything you pass into this library as if it's getting echoed directly onto the page.
+[`htmlspecialchars()`](http://php.net/htmlspecialchars) should be enough to prevent any unwanted markup from appearing.
+
+If I am mistaken about any of this, please notify me right away.
 
 ## Contributing
 Bug reports, bug fixes, tests, and documentation are heartily welcomed.

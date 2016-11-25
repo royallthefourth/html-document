@@ -11,7 +11,7 @@ use RoyallTheFourth\HtmlDocument\Tag\EmptyTag;
  * Class Arbitrary
  * Any type of tag without a matching close tag.
  */
-final class ArbitrarySingle extends AbstractElement
+final class ArbitraryEmpty extends AbstractElement
 {
     private $name;
 
@@ -22,7 +22,7 @@ final class ArbitrarySingle extends AbstractElement
         $this->tag = new EmptyTag($name, $attributes);
     }
 
-    public function withAttribute(string $name, string $value = null): ArbitrarySingle
+    public function withAttribute(string $name, string $value = null): ArbitraryEmpty
     {
         if ($value) {
             $attribute = new StandardAttribute($name, $value);
@@ -30,6 +30,6 @@ final class ArbitrarySingle extends AbstractElement
             $attribute = new BooleanAttribute($name);
         }
 
-        return new ArbitrarySingle($this->name, $this->attributes->add($attribute));
+        return new ArbitraryEmpty($this->name, $this->attributes->add($attribute));
     }
 }

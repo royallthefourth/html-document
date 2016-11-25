@@ -5,9 +5,10 @@ namespace RoyallTheFourth\HtmlDocument\Tag;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 
-final class Standard extends AbstractTag
+final class Standard implements TagInterface
 {
-    /** @var  $children ElementSet */
+    private $attributes;
+    private $name;
     private $children;
 
     public function __construct(string $name, AttributeSet $attributes = null, ElementSet $children = null)
@@ -19,7 +20,7 @@ final class Standard extends AbstractTag
 
     public function render(): string
     {
-        $attributes = $this->renderAttributes();
+        $attributes = $this->attributes->render();
         $children = $this->renderChildren();
 
         return "<{$this->name}{$attributes}>{$children}\n</{$this->name}>\n";
