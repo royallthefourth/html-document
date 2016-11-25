@@ -4,6 +4,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\ChildRuleInterface;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\Standard;
@@ -32,7 +33,7 @@ final class Style extends AbstractElement implements ParentElementInterface
         return new Style($this->attributes->add($attribute), $this->children);
     }
 
-    public function withChild(ElementInterface $element): Style
+    public function withChild(ElementInterface $element, ChildRuleInterface $rule = null): Style
     {
         return new Style($this->attributes, $this->children->add($element));
     }

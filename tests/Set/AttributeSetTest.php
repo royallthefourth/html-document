@@ -1,6 +1,6 @@
 <?php
 
-namespace Set;
+namespace RoyallTheFourth\HtmlDocument\Test\Set;
 
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;

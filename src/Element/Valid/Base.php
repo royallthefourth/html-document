@@ -10,13 +10,12 @@ use RoyallTheFourth\HtmlDocument\Element\Valid\Hierarchy\HeadInterface;
  */
 final class Base extends AbstractElement implements HeadInterface
 {
-    protected static $validAttributes = [
-        'href',
-        'target'
-    ];
-
     public function __construct()
     {
+        $this->validAttributes = [
+            'href',
+            'target'
+        ];
         $this->element = new \RoyallTheFourth\HtmlDocument\Element\Base();
     }
 

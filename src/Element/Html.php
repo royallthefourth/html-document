@@ -4,6 +4,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\ChildRuleInterface;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\Standard;
@@ -32,8 +33,12 @@ final class Html extends AbstractElement implements ParentElementInterface
         return new Html($this->attributes->add($attribute), $this->children);
     }
 
-    public function withChild(ElementInterface $element): Html
+    public function withChild(ElementInterface $element, ChildRuleInterface $rule = null): Html
     {
+        if ($rule !== null) {
+            $this->children->validate($rule);
+        }
+
         return new Html($this->attributes, $this->children->add($element));
     }
 }

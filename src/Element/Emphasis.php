@@ -4,6 +4,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\ChildRuleInterface;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\Standard;
@@ -12,7 +13,7 @@ use RoyallTheFourth\HtmlDocument\Tag\Standard;
  * Class Emphasis
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em
  */
-final class Emphasis extends AbstractElement
+final class Emphasis extends AbstractElement implements ParentElementInterface
 {
     public function __construct(AttributeSet $attributes = null, ElementSet $children = null)
     {
@@ -32,7 +33,7 @@ final class Emphasis extends AbstractElement
         return new Emphasis($this->attributes->add($attribute), $this->children);
     }
 
-    public function withChild(ElementInterface $element): Emphasis
+    public function withChild(ElementInterface $element, ChildRuleInterface $rule = null): Emphasis
     {
         return new Emphasis($this->attributes, $this->children->add($element));
     }

@@ -4,6 +4,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\ChildRuleInterface;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\Standard;
@@ -32,7 +33,7 @@ final class Rp extends AbstractElement implements ParentElementInterface
         return new Rp($this->attributes->add($attribute), $this->children);
     }
 
-    public function withChild(ElementInterface $element): Rp
+    public function withChild(ElementInterface $element, ChildRuleInterface $rule = null): Rp
     {
         return new Rp($this->attributes, $this->children->add($element));
     }

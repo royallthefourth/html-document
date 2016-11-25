@@ -1,6 +1,6 @@
 <?php
 
-namespace Set;
+namespace RoyallTheFourth\HtmlDocument\Test\Set;
 
 use RoyallTheFourth\HtmlDocument\Element\Text;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;

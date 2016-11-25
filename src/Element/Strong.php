@@ -4,6 +4,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\ChildRuleInterface;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\Standard;
@@ -32,7 +33,7 @@ final class Strong extends AbstractElement implements ParentElementInterface
         return new Strong($this->attributes->add($attribute), $this->children);
     }
 
-    public function withChild(ElementInterface $element): Strong
+    public function withChild(ElementInterface $element, ChildRuleInterface $rule = null): Strong
     {
         return new Strong($this->attributes, $this->children->add($element));
     }

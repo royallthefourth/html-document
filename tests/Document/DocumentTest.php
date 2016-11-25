@@ -1,6 +1,6 @@
 <?php
 
-namespace Document;
+namespace RoyallTheFourth\HtmlDocument\Test\Document;
 
 use RoyallTheFourth\HtmlDocument\Document;
 use RoyallTheFourth\HtmlDocument\Element\Text;

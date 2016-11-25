@@ -112,6 +112,10 @@ abstract class AbstractElement implements ValidElementInterface
         return $this->element->render();
     }
 
+    /**
+     * @param string $attribute
+     * @throws \Exception
+     */
     protected function verifyAttribute(string $attribute)
     {
         $prefix = explode('-', $attribute)[0];
@@ -119,15 +123,25 @@ abstract class AbstractElement implements ValidElementInterface
                 in_array($prefix, static::$globalAttributePrefixes, true)
                 || in_array($attribute, array_merge($this->validAttributes, static::$globalAttributes), true)
             )) {
-            throw new \Exception("Attempted to add invalid attribute type {$attribute}");
+            throw new \Exception("Attribute type {$attribute} is not valid for " . get_class($this));
         }
     }
 
+    /**
+     * @param string $name
+     * @param string|null $value
+     * @return $this
+     * @throws \Exception
+     */
     public function withAttribute(string $name, string $value = null)
     {
-        $this->verifyAttribute($name);
-        $this->element = $this->element->withAttribute($name, $value);
+        try {
+            $this->verifyAttribute($name);
+        } catch (\Exception $e) {
+            throw new \Exception("Could not add attribute {$name}", 0, $e);
+        }
 
+        $this->element = $this->element->withAttribute($name, $value);
         return $this;
     }
 

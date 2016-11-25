@@ -1,6 +1,6 @@
 <?php
 
-namespace Attribute;
+namespace RoyallTheFourth\HtmlDocument\Test\Attribute;
 
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 

@@ -4,6 +4,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\ChildRuleInterface;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\Standard;
@@ -32,7 +33,7 @@ final class DescriptionTerm extends AbstractElement implements ParentElementInte
         return new DescriptionTerm($this->attributes->add($attribute), $this->children);
     }
 
-    public function withChild(ElementInterface $element): DescriptionTerm
+    public function withChild(ElementInterface $element, ChildRuleInterface $rule = null): DescriptionTerm
     {
         return new DescriptionTerm($this->attributes, $this->children->add($element));
     }
