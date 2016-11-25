@@ -4,7 +4,6 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
-use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\ChildRuleInterface;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\Standard;
@@ -33,7 +32,7 @@ final class Details extends AbstractElement implements ParentElementInterface
         return new Details($this->attributes->add($attribute), $this->children);
     }
 
-    public function withChild(ElementInterface $element, ChildRuleInterface $rule = null): Details
+    public function withChild(ElementInterface $element): Details
     {
         return new Details($this->attributes, $this->children->add($element));
     }

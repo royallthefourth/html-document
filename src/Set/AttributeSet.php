@@ -3,6 +3,7 @@
 namespace RoyallTheFourth\HtmlDocument\Set;
 
 use RoyallTheFourth\HtmlDocument\Attribute\AttributeInterface;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Attribute\AttributeRuleInterface;
 
 final class AttributeSet implements SetInterface
 {
@@ -54,5 +55,10 @@ final class AttributeSet implements SetInterface
         }
 
         return $output;
+    }
+
+    public function validate(AttributeRuleInterface $rule)
+    {
+        $rule->withAttributes($this->attributes)->validate();
     }
 }

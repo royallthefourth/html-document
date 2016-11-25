@@ -4,7 +4,6 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
-use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\ChildRuleInterface;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\Standard;
@@ -35,7 +34,7 @@ final class Heading extends AbstractElement implements ParentElementInterface
         return new Heading($this->level, $this->attributes->add($attribute), $this->children);
     }
 
-    public function withChild(ElementInterface $element, ChildRuleInterface $rule = null): Heading
+    public function withChild(ElementInterface $element): Heading
     {
         return new Heading($this->level, $this->attributes, $this->children->add($element));
     }

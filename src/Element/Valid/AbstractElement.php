@@ -2,8 +2,6 @@
 
 namespace RoyallTheFourth\HtmlDocument\Element\Valid;
 
-use RoyallTheFourth\HtmlDocument\Element\ElementInterface;
-
 /**
  * Class AbstractElement
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes
@@ -104,11 +102,15 @@ abstract class AbstractElement implements ValidElementInterface
         'data'
     ];
 
-    /** @var  $tag ElementInterface */
+    /** @var  $tag \RoyallTheFourth\HtmlDocument\Element\AbstractElement */
     protected $element;
+
+    protected $childRule = null;
+    protected $attributeRule = null;
 
     final public function render(): string
     {
+        $this->element->validate($this->childRule, $this->attributeRule);
         return $this->element->render();
     }
 

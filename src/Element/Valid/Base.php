@@ -2,13 +2,13 @@
 
 namespace RoyallTheFourth\HtmlDocument\Element\Valid;
 
-use RoyallTheFourth\HtmlDocument\Element\Valid\Hierarchy\HeadInterface;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Hierarchy\HeadChildInterface;
 
 /**
  * Class Base
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
  */
-final class Base extends AbstractElement implements HeadInterface
+final class Base extends AbstractElement implements HeadChildInterface
 {
     public function __construct()
     {

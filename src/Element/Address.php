@@ -4,7 +4,6 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
-use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\ChildRuleInterface;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\Standard;
@@ -34,7 +33,7 @@ final class Address extends AbstractElement
         return new Address($this->attributes->add($attribute), $this->children);
     }
 
-    public function withChild(ElementInterface $element, ChildRuleInterface $rule = null): Address
+    public function withChild(ElementInterface $element): Address
     {
         return new Address($this->attributes, $this->children->add($element));
     }

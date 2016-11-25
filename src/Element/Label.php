@@ -4,7 +4,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
-use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\ChildRuleInterface;
+
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\Standard;
@@ -33,7 +33,7 @@ final class Label extends AbstractElement implements ParentElementInterface
         return new Label($this->attributes->add($attribute), $this->children);
     }
 
-    public function withChild(ElementInterface $element, ChildRuleInterface $rule = null): Label
+    public function withChild(ElementInterface $element): Label
     {
         return new Label($this->attributes, $this->children->add($element));
     }

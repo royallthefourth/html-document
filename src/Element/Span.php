@@ -4,7 +4,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
-use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\ChildRuleInterface;
+
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\Standard;
@@ -33,7 +33,7 @@ final class Span extends AbstractElement implements ParentElementInterface
         return new Span($this->attributes->add($attribute), $this->children);
     }
 
-    public function withChild(ElementInterface $element, ChildRuleInterface $rule = null): Span
+    public function withChild(ElementInterface $element): Span
     {
         return new Span($this->attributes, $this->children->add($element));
     }

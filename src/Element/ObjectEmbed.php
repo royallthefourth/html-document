@@ -4,7 +4,6 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
-use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\ChildRuleInterface;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\Standard;
@@ -33,7 +32,7 @@ final class ObjectEmbed extends AbstractElement implements ParentElementInterfac
         return new ObjectEmbed($this->attributes->add($attribute), $this->children);
     }
 
-    public function withChild(ElementInterface $element, ChildRuleInterface $rule = null): ObjectEmbed
+    public function withChild(ElementInterface $element): ObjectEmbed
     {
         return new ObjectEmbed($this->attributes, $this->children->add($element));
     }
