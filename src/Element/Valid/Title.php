@@ -13,6 +13,10 @@ class Title extends AbstractElement implements ParentElementInterface, MetaDataI
 
     public function withChild(ValidElementInterface $element): Title
     {
+        if (!($element instanceof Text)) {
+            throw new \Exception('title element should only contain text');
+        }
+
         $this->element = $this->element->withChild($element);
         return $this;
     }
