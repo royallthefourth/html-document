@@ -4,6 +4,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Hierarchy\MetaDataInterface;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Tag\EmptyTag;
 
@@ -11,7 +12,7 @@ use RoyallTheFourth\HtmlDocument\Tag\EmptyTag;
  * Class Base
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
  */
-final class Base extends AbstractElement
+final class Base extends AbstractElement implements MetaDataInterface
 {
     public function __construct(AttributeSet $attributes = null)
     {
@@ -38,5 +39,10 @@ final class Base extends AbstractElement
     public function withTarget($target): Base
     {
         return $this->withAttribute('target', $target);
+    }
+
+    public function isPhrasing(): bool
+    {
+        return false;
     }
 }

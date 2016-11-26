@@ -5,6 +5,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 
+use RoyallTheFourth\HtmlDocument\Element\Valid\Hierarchy\HtmlChildInterface;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\Standard;
@@ -13,7 +14,7 @@ use RoyallTheFourth\HtmlDocument\Tag\Standard;
  * Class Body
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
  */
-final class Body extends AbstractElement implements ParentElementInterface
+final class Body extends AbstractElement implements ParentElementInterface, HtmlChildInterface
 {
     public function __construct(AttributeSet $attributes = null, ElementSet $children = null)
     {
@@ -36,5 +37,10 @@ final class Body extends AbstractElement implements ParentElementInterface
     public function withChild(ElementInterface $element): Body
     {
         return new Body($this->attributes, $this->children->add($element));
+    }
+
+    public function isPhrasing(): bool
+    {
+        return false;
     }
 }

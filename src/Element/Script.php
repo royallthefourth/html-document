@@ -4,6 +4,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Hierarchy\MetaDataInterface;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\Standard;
@@ -12,7 +13,7 @@ use RoyallTheFourth\HtmlDocument\Tag\Standard;
  * Class Script
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
  */
-final class Script extends AbstractElement implements ParentElementInterface
+final class Script extends AbstractElement implements ParentElementInterface, MetaDataInterface
 {
     public function __construct(AttributeSet $attributes = null, ElementSet $children = null)
     {
@@ -80,5 +81,10 @@ final class Script extends AbstractElement implements ParentElementInterface
     public function withCrossOrigin(string $policy): Script
     {
         return $this->withAttribute('crossorigin', $policy);
+    }
+
+    public function isPhrasing(): bool
+    {
+        return false;
     }
 }

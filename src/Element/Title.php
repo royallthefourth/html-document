@@ -5,6 +5,8 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 
+use RoyallTheFourth\HtmlDocument\Element\Valid\Hierarchy\HtmlChildInterface;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Hierarchy\MetaDataInterface;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\Standard;
@@ -13,7 +15,7 @@ use RoyallTheFourth\HtmlDocument\Tag\Standard;
  * Class Title
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
  */
-final class Title extends AbstractElement implements ParentElementInterface
+final class Title extends AbstractElement implements ParentElementInterface, MetaDataInterface, HtmlChildInterface
 {
     public function __construct(AttributeSet $attributes = null, ElementSet $children = null)
     {
@@ -36,5 +38,10 @@ final class Title extends AbstractElement implements ParentElementInterface
     public function withChild(ElementInterface $element): Title
     {
         return new Title($this->attributes, $this->children->add($element));
+    }
+
+    public function isPhrasing(): bool
+    {
+        return false;
     }
 }
