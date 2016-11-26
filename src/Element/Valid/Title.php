@@ -4,6 +4,9 @@ namespace RoyallTheFourth\HtmlDocument\Element\Valid;
 
 use RoyallTheFourth\HtmlDocument\Element\Valid\Hierarchy\MetaDataInterface;
 
+/**
+ * @throws \Exception
+ */
 class Title extends AbstractElement implements ParentElementInterface, MetaDataInterface
 {
     public function __construct()
