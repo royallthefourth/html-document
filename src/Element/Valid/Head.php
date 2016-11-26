@@ -3,6 +3,7 @@
 namespace RoyallTheFourth\HtmlDocument\Element\Valid;
 
 use RoyallTheFourth\HtmlDocument\Element\Valid\Hierarchy\HtmlChildInterface;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Hierarchy\MetaDataInterface;
 use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\HeadChildren;
 
 /**
@@ -19,8 +20,11 @@ final class Head extends AbstractElement implements ParentElementInterface, Html
 
     public function withChild(ValidElementInterface $element): Head
     {
-        $this->element = $this->element->withChild($element);
+        if (!($element instanceof MetaDataInterface)) {
+            throw new \Exception('Child of head must implement MetaDataInterface');
+        }
 
+        $this->element = $this->element->withChild($element);
         return $this;
     }
 }
