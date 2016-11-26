@@ -2,37 +2,37 @@
 
 namespace RoyallTheFourth\HtmlDocument\Test\Element\Valid\Rule\Child;
 
-use RoyallTheFourth\HtmlDocument\Element\Body;
-use RoyallTheFourth\HtmlDocument\Element\Head;
-use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\HtmlChildren;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Body;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Head;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\HtmlRule;
 
-final class HtmlChildrenTest extends \PHPUnit_Framework_TestCase
+final class HtmlRuleTest extends \PHPUnit_Framework_TestCase
 {
     public function testNoChildren()
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('must have children');
-        (new HtmlChildren())->validate();
+        (new HtmlRule())->validate();
     }
 
     public function testWrongFirstType()
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('must be head');
-        (new HtmlChildren([0]))->validate();
+        (new HtmlRule([0]))->validate();
     }
 
     public function testWrongSecondType()
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('must be body');
-        (new HtmlChildren([new Head(), 0]))->validate();
+        (new HtmlRule([new Head(), 0]))->validate();
     }
 
     public function testTooMany()
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('more than two');
-        (new HtmlChildren([new Head(), new Body(), 0]))->validate();
+        (new HtmlRule([new Head(), new Body(), 0]))->validate();
     }
 }

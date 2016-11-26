@@ -4,7 +4,7 @@ namespace RoyallTheFourth\HtmlDocument\Element\Valid;
 
 use RoyallTheFourth\HtmlDocument\Element\Valid\Hierarchy\HtmlChildInterface;
 use RoyallTheFourth\HtmlDocument\Element\Valid\Hierarchy\MetaDataInterface;
-use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\HeadChildren;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\HeadRule;
 
 /**
  * Class Head
@@ -15,7 +15,7 @@ final class Head extends AbstractElement implements ParentElementInterface, Html
     public function __construct()
     {
         $this->element = new \RoyallTheFourth\HtmlDocument\Element\Head();
-        $this->childRule = new HeadChildren();
+        $this->validationRule = new HeadRule();
     }
 
     public function withChild(ValidElementInterface $element): Head

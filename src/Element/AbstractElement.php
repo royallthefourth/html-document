@@ -2,8 +2,7 @@
 
 namespace RoyallTheFourth\HtmlDocument\Element;
 
-use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Attribute\AttributeRuleInterface;
-use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\ChildRuleInterface;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\RuleInterface;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\TagInterface;
@@ -28,14 +27,11 @@ abstract class AbstractElement implements ElementInterface
 
     abstract public function withAttribute(string $key, string $value = null);
 
-    public function validate(ChildRuleInterface $childRule = null, AttributeRuleInterface $attributeRule = null)
+    public function validate(RuleInterface $rule = null)
     {
-        if ($childRule !== null) {
-            $this->children->validate($childRule);
-        }
-
-        if ($attributeRule !== null) {
-            $this->attributes->validate($attributeRule);
+        if ($rule !== null) {
+            $this->children->validate($rule);
+            $this->attributes->validate($rule);
         }
     }
 

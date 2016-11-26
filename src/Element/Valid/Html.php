@@ -3,7 +3,7 @@
 namespace RoyallTheFourth\HtmlDocument\Element\Valid;
 
 use RoyallTheFourth\HtmlDocument\Element\Valid\Hierarchy\HtmlChildInterface;
-use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\HtmlChildren;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\HtmlRule;
 
 /**
  * Class Html
@@ -14,7 +14,7 @@ final class Html extends AbstractElement implements ParentElementInterface
 {
     public function __construct()
     {
-        $this->childRule = new HtmlChildren();
+        $this->validationRule = new HtmlRule();
         $this->element = new \RoyallTheFourth\HtmlDocument\Element\Html();
     }
 

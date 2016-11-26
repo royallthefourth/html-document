@@ -3,7 +3,7 @@
 namespace RoyallTheFourth\HtmlDocument\Set;
 
 use RoyallTheFourth\HtmlDocument\Element\ElementInterface;
-use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child\ChildRuleInterface;
+use RoyallTheFourth\HtmlDocument\Element\Valid\Rule\RuleInterface;
 
 final class ElementSet implements ElementSetInterface
 {
@@ -57,7 +57,7 @@ final class ElementSet implements ElementSetInterface
         return $output;
     }
 
-    public function validate(ChildRuleInterface $rule)
+    public function validate(RuleInterface $rule)
     {
         $rule->withChildren($this->elements)->validate();
     }

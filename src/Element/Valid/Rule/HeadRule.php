@@ -1,22 +1,29 @@
 <?php
 
-namespace RoyallTheFourth\HtmlDocument\Element\Valid\Rule\Child;
+namespace RoyallTheFourth\HtmlDocument\Element\Valid\Rule;
 
 use RoyallTheFourth\HtmlDocument\Element\Base;
 use RoyallTheFourth\HtmlDocument\Element\Valid\Title;
 
-final class HeadChildren implements ChildRuleInterface
+final class HeadRule implements RuleInterface
 {
+    private $attributes;
     private $children;
 
-    public function __construct(array $children = null)
+    public function __construct(array $children = null, array $attributes = null)
     {
+        $this->attributes = $attributes;
         $this->children = $children;
     }
 
-    public function withChildren(array $children): ChildRuleInterface
+    public function withAttributes(array $attributes): RuleInterface
     {
-        return new HeadChildren($children);
+        return new HeadRule($this->children, $attributes);
+    }
+
+    public function withChildren(array $children): RuleInterface
+    {
+        return new HeadRule($children, $this->attributes);
     }
 
     /**
