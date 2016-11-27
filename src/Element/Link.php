@@ -6,7 +6,7 @@ use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
-use RoyallTheFourth\HtmlDocument\Tag\Standard;
+use RoyallTheFourth\HtmlDocument\Tag\EmptyTag;
 
 /**
  * Class Link
@@ -18,7 +18,7 @@ final class Link extends AbstractElement implements ParentElementInterface
     {
         $this->attributes = $attributes ?? new AttributeSet();
         $this->children = $children ?? new ElementSet();
-        $this->tag = new Standard('link', $attributes, $children);
+        $this->tag = new EmptyTag('link', $attributes, $children);
     }
 
     public function withAttribute(string $name, string $value = null): Link
