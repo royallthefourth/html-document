@@ -5,20 +5,18 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 use RoyallTheFourth\HtmlDocument\Attribute\BooleanAttribute;
 use RoyallTheFourth\HtmlDocument\Attribute\StandardAttribute;
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
-use RoyallTheFourth\HtmlDocument\Set\ElementSet;
 use RoyallTheFourth\HtmlDocument\Tag\EmptyTag;
 
 /**
  * Class Link
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
  */
-final class Link extends AbstractElement implements ParentElementInterface
+final class Link extends AbstractElement
 {
-    public function __construct(AttributeSet $attributes = null, ElementSet $children = null)
+    public function __construct(AttributeSet $attributes = null)
     {
         $this->attributes = $attributes ?? new AttributeSet();
-        $this->children = $children ?? new ElementSet();
-        $this->tag = new EmptyTag('link', $attributes, $children);
+        $this->tag = new EmptyTag('link', $attributes);
     }
 
     public function withAttribute(string $name, string $value = null): Link
@@ -29,12 +27,7 @@ final class Link extends AbstractElement implements ParentElementInterface
             $attribute = new BooleanAttribute($name);
         }
 
-        return new Link($this->attributes->add($attribute), $this->children);
-    }
-
-    public function withChild(ElementInterface $element): Link
-    {
-        return new Link($this->attributes, $this->children->add($element));
+        return new Link($this->attributes->add($attribute));
     }
 
     public function withCrossOrigin(string $policy): Link
