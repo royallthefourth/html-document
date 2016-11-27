@@ -10,7 +10,7 @@ final class EmptyTag implements TagInterface
 
     public function __construct(string $name, AttributeSet $attributes = null)
     {
-        $this->attributes = $attributes;
+        $this->attributes = $attributes ?? new AttributeSet();
         $this->name = $name;
     }
 

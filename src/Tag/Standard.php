@@ -13,8 +13,8 @@ final class Standard implements TagInterface
 
     public function __construct(string $name, AttributeSet $attributes = null, ElementSet $children = null)
     {
-        $this->attributes = $attributes;
-        $this->children = $children;
+        $this->attributes = $attributes ?? new AttributeSet();
+        $this->children = $children ?? new ElementSet();
         $this->name = $name;
     }
 
