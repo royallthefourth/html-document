@@ -18,6 +18,7 @@ final class Heading extends AbstractElement implements ParentElementInterface
 
     public function __construct(int $level, AttributeSet $attributes = null, ElementSet $children = null)
     {
+        $this->level = $level;
         $this->attributes = $attributes ?? new AttributeSet();
         $this->children = $children ?? new ElementSet();
         $this->tag = new Standard("h{$level}", $attributes, $children);
