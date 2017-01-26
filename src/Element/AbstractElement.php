@@ -4,7 +4,7 @@ namespace RoyallTheFourth\HtmlDocument\Element;
 
 use RoyallTheFourth\HtmlDocument\Set\AttributeSet;
 use RoyallTheFourth\HtmlDocument\Set\ElementSet;
-use RoyallTheFourth\HtmlDocument\Tag\AbstractTag;
+use RoyallTheFourth\HtmlDocument\Tag\TagInterface;
 
 /**
  * Class AbstractElement
@@ -16,7 +16,7 @@ abstract class AbstractElement implements ElementInterface
     protected $attributes;
     /** @var  $children ElementSet */
     protected $children;
-    /** @var  $tag AbstractTag */
+    /** @var  $tag TagInterface */
     protected $tag;
 
     final public function render(): string
@@ -27,7 +27,7 @@ abstract class AbstractElement implements ElementInterface
     /**
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey
      */
-    public function withAccessKey(string $key)
+    public function withAccessKey(string $key): self
     {
         return $this->withAttribute('accesskey', $key);
     }
@@ -35,7 +35,7 @@ abstract class AbstractElement implements ElementInterface
     /**
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class
      */
-    public function withClass(string $class)
+    public function withClass(string $class): self
     {
         return $this->withAttribute('class', $class);
     }
@@ -43,7 +43,7 @@ abstract class AbstractElement implements ElementInterface
     /**
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable
      */
-    public function withContentEditable(string $editable = 'true')
+    public function withContentEditable(string $editable = 'true'): self
     {
         return $this->withAttribute('contenteditable', $editable);
     }
@@ -51,7 +51,7 @@ abstract class AbstractElement implements ElementInterface
     /**
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contextmenu
      */
-    public function withContextMenu(string $id)
+    public function withContextMenu(string $id): self
     {
         return $this->withAttribute('contextmenu', $id);
     }
@@ -59,7 +59,7 @@ abstract class AbstractElement implements ElementInterface
     /**
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir
      */
-    public function withDir(string $direction = 'auto')
+    public function withDir(string $direction = 'auto'): self
     {
         return $this->withAttribute('dir', $direction);
     }
@@ -67,7 +67,7 @@ abstract class AbstractElement implements ElementInterface
     /**
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden
      */
-    public function withHidden()
+    public function withHidden(): self
     {
         return $this->withAttribute('hidden');
     }
@@ -75,7 +75,7 @@ abstract class AbstractElement implements ElementInterface
     /**
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id
      */
-    public function withId(string $id)
+    public function withId(string $id): self
     {
         return $this->withAttribute('id', $id);
     }
@@ -83,7 +83,7 @@ abstract class AbstractElement implements ElementInterface
     /**
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang
      */
-    public function withLang(string $lang)
+    public function withLang(string $lang): self
     {
         return $this->withAttribute('lang', $lang);
     }
@@ -91,7 +91,7 @@ abstract class AbstractElement implements ElementInterface
     /**
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style
      */
-    public function withStyle(string $css)
+    public function withStyle(string $css): self
     {
         return $this->withAttribute('style', $css);
     }
@@ -99,7 +99,7 @@ abstract class AbstractElement implements ElementInterface
     /**
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex
      */
-    public function withTabIndex(int $tabIndex)
+    public function withTabIndex(int $tabIndex): self
     {
         return $this->withAttribute('tabindex', $tabIndex);
     }
@@ -107,7 +107,7 @@ abstract class AbstractElement implements ElementInterface
     /**
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title
      */
-    public function withTitle(string $title)
+    public function withTitle(string $title): self
     {
         return $this->withAttribute('title', $title);
     }
@@ -115,7 +115,7 @@ abstract class AbstractElement implements ElementInterface
     /**
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/translate
      */
-    public function withTranslate(string $translate = 'yes')
+    public function withTranslate(string $translate = 'yes'): self
     {
         return $this->withAttribute('translate', $translate);
     }
